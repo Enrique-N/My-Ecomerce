@@ -1,10 +1,12 @@
+import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
 import NavBar from './Components/NavBar';
 
 function App() {
   return (
-    <header>
+    <div>
       <NavBar />
-    </header>
+      <ItemListContainer greeting="Hola Coder" />
+    </div>
   );
 }
 

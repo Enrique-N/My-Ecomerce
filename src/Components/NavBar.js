@@ -1,10 +1,11 @@
 import React from 'react'
+import CartWidget from './CartWidget/CartWidget'
 
 export default function NavBar() {
     return (
-        <div>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div className="container-fluid">
+        <header>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-between px-3">
+                <div className="d-flex">
                     <a className="navbar-brand" href="/">My Ecomerce</a>
                     <ul className="navbar-nav">
                         <li className="nav-item">
@@ -15,7 +16,8 @@ export default function NavBar() {
                         </li>
                     </ul>
                 </div>
+                <CartWidget />
             </nav>
-        </div>
+        </header>
     )
 }

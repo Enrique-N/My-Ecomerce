@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 
 
-const ItemCount = ({ stock, initial }) => {
+const ItemCount = ({ stock, initial, onAdd }) => {
 
-    let [state, setState] = useState(initial)
+    const [state, setState] = useState(initial)
 
-    const onAdd = () => {
+    const onIncrease = () => {
         if (state < stock) {
             setState(state + 1)
         }
@@ -17,12 +17,14 @@ const ItemCount = ({ stock, initial }) => {
         }
     }
 
+
     return (
         <div>
             <p>{state}</p>
             <div className="btn-group" role="group" aria-label="Basic example">
                 <button type="button" className="btn btn-primary" onClick={onDecrease}>-</button>
-                <button type="button" className="btn btn-secondary" onClick={onAdd}>+</button>
+                <button type="button" className="btn btn-primary" onClick={onAdd}>Agregar al carrito</button>
+                <button type="button" className="btn btn-primary" onClick={onIncrease}>+</button>
             </div>
         </div>
     )

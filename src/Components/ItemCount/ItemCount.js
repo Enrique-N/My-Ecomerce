@@ -20,7 +20,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
     return (
         <div>
-            <p>{state}</p>
+            <div>{state}</div>
             <div className="btn-group" role="group" aria-label="Basic example">
                 <button type="button" className="btn btn-primary" onClick={onDecrease}>-</button>
                 <button type="button" className="btn btn-primary" onClick={onAdd}>Agregar al carrito</button>

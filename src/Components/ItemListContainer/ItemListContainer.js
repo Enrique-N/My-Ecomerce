@@ -3,12 +3,12 @@ import ItemList from '../ItemList/ItemList'
 
 const ItemListContainer = () => {
 
-    const [users, setUser] = useState([])
+    const [users, setUsers] = useState([])
 
     useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/users")
+        fetch("https://www.breakingbadapi.com/api/characters")
             .then(resp => resp.json())
-            .then(data => setUser(data))
+            .then(data => setUsers(data))
     }, [])
 
     return (

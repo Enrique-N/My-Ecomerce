@@ -7,7 +7,7 @@ const ItemDetailContainer = ({ match }) => {
 
     let userID = match.params.id;
 
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState(null)
 
     useEffect(() => {
         axios(`https://www.breakingbadapi.com/api/characters/${userID}`)

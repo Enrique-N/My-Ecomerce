@@ -4,6 +4,7 @@ import ItemCount from '../ItemCount/ItemCount';
 
 const ItemDetail = ({ user }) => {
 
+
     return (
         <div className="text-center" key={user.char_id}>
             <div>{user.name}</div>

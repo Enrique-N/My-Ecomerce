@@ -1,26 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
+import { CartContext } from '../../CartContext';
 
 
-const ItemDetail = ({ user }) => {
+const ItemDetail = ({ producto }) => {
 
     const [value, setValue] = useState(0)
     const [render, setRender] = useState(false)
+    const { addCart } = useContext(CartContext)
 
     const onAdd = (quantityToAdd) => {
         setValue(quantityToAdd)
+        addCart(producto, quantityToAdd)
         setRender(true)
     }
 
-    console.log("Valor guardado:", value)
-
     return (
-        <div className="text-center" key={user.char_id}>
-            <div>{user.name}</div>
-            <img src={user.img} alt="" width="250" height="250"></img>
-            <div>{user.birthday}</div>
-            <div>{user.nickname}</div>
+        <div className="text-center" key={producto.char_id}>
+            <div>{producto.nombre}</div>
+            <img src={producto.img} alt="" width="250" height="250"></img>
+            <div>${producto.precio}</div>
             {render ? <Link to="/cart" type="button" className="btn btn-primary">Terminar Compra</Link> : <ItemCount stock={5} initial={1} onAdd={onAdd} />}
         </div>
     )

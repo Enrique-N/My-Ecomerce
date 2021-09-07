@@ -6,11 +6,9 @@ import { Link } from 'react-router-dom'
 const Item = ({ producto }) => {
 
     const { addCart } = useContext(CartContext)
-    const { isInCart } = useContext(CartContext)
 
     const onAdd = (quantityToAdd) => {
         addCart(producto, quantityToAdd)
-        isInCart(producto.id)
     }
 
     return (

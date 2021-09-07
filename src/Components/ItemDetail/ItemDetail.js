@@ -9,13 +9,11 @@ const ItemDetail = ({ producto }) => {
     const [value, setValue] = useState(0)
     const [render, setRender] = useState(false)
     const { addCart } = useContext(CartContext)
-    const { isInCart } = useContext(CartContext)
 
     const onAdd = (quantityToAdd) => {
         setValue(quantityToAdd)
         addCart(producto, quantityToAdd)
         setRender(true)
-        isInCart(producto.id)
     }
 
     return (

@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 
 
-
 const ItemCount = ({ stock, initial, onAdd }) => {
 
     const [state, setState] = useState(initial)
+
+
 
     const onIncrease = () => {
         if (state < stock) {

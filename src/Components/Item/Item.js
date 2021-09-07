@@ -15,10 +15,11 @@ const Item = ({ producto }) => {
         <>
             <div>{producto.nombre}</div>
             <div>${producto.precio}</div>
+            <div>Stock: {producto.stock}</div>
             <Link to={`/detail/${producto.id}`}>
                 <img src={producto.img} alt="" width="200px" height="200px"></img>
             </Link>
-            <ItemCount stock={5} initial={1} onAdd={onAdd} />
+            <ItemCount stock={producto.stock} initial={1} onAdd={onAdd} />
         </>
     )
 }

@@ -7,7 +7,7 @@ export const ItemsProvider = ({ children }) => {
     const [items, setItems] = useState([])
 
     useEffect(() => {
-        axios(`https://mocki.io/v1/4cb5b031-6939-4b7f-b96e-e045c02011cb`)
+        axios(`https://mocki.io/v1/72f12565-1732-4904-ac69-d0594752ea26`)
             .then(user => setItems(user.data))
     }, [])
 

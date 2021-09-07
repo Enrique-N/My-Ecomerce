@@ -11,7 +11,7 @@ const ItemDetailContainer = ({ match }) => {
     const currentProduct = items.filter(data => data.id == userID)[0]
 
     return (
-        <div className="m-5 row">
+        <div className="row" style={{ marginTop: "5%" }}>
             <div className="col-12 d-flex justify-content-evenly">
                 {items.length > 0
                     ? <ItemDetail producto={currentProduct} />

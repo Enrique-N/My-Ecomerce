@@ -1,14 +1,25 @@
 import React, { useState, createContext, useEffect } from 'react';
-import axios from 'axios';
+import { db } from './firebase';
+import { collection, query, getDocs } from "firebase/firestore";
+
 
 export const ItemsContext = createContext();
 
 export const ItemsProvider = ({ children }) => {
     const [items, setItems] = useState([])
 
+    const getProducts = async () => {
+        const docs = [];
+        const q = query(collection(db, "Products"));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+            docs.push({ ...doc.data(), id: doc.id })
+        })
+        setItems(docs)
+    }
+
     useEffect(() => {
-        axios(`https://mocki.io/v1/72f12565-1732-4904-ac69-d0594752ea26`)
-            .then(user => setItems(user.data))
+        getProducts()
     }, [])
 
     return (

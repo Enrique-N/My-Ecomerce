@@ -7,8 +7,8 @@ const ItemDetailContainer = ({ match }) => {
 
     let userID = match.params.id;
 
-    const [items] = useContext(ItemsContext)
-    const currentProduct = items.filter(data => data.id == userID)[0]
+    const { items } = useContext(ItemsContext)
+    const currentProduct = items.filter(data => data.id === userID)[0]
 
     return (
         <div className="row" style={{ marginTop: "5%" }}>

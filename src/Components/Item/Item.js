@@ -17,7 +17,7 @@ const Item = ({ producto }) => {
             <div>${producto.precio}</div>
             <div>Stock: {producto.stock}</div>
             <Link to={`/detail/${producto.id}`}>
-                <img src={producto.img} alt="" width="200px" height="200px"></img>
+                <img src={producto.img} alt="imagen del producto" width="200px" height="200px" />
             </Link>
             <ItemCount stock={producto.stock} initial={1} onAdd={onAdd} />
         </>

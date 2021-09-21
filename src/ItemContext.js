@@ -1,6 +1,5 @@
 import React, { useState, createContext, useEffect } from 'react';
 import { db } from './firebase';
-import { collection, query, getDocs } from "firebase/firestore";
 
 
 export const ItemsContext = createContext();
@@ -8,23 +7,40 @@ export const ItemsContext = createContext();
 export const ItemsProvider = ({ children }) => {
     const [items, setItems] = useState([])
 
-    const getProducts = async () => {
+    const getProducts = () => {
         const docs = [];
-        const q = query(collection(db, "Products"));
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
-            docs.push({ ...doc.data(), id: doc.id })
+        db.collection("Products").onSnapshot((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                docs.push({ ...doc.data(), id: doc.id })
+            })
+            setItems(docs)
         })
-        setItems(docs)
+    }
+
+    const getCategory = (item) => {
+        const docs = [];
+        db.collection("Products")
+            .where('category', "==", `${item}`)
+            .onSnapshot((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    docs.push({ ...doc.data(), id: doc.id })
+                })
+                setItems(docs)
+            })
     }
 
     useEffect(() => {
         getProducts()
     }, [])
 
+
+
     return (
-        <ItemsContext.Provider value={[items]}>
+        <ItemsContext.Provider value={{ items, getCategory, getProducts }}>
             {children}
         </ItemsContext.Provider>
     )
 }
+
+
+// mock: https://mocki.io/v1/72f12565-1732-4904-ac69-d0594752ea26

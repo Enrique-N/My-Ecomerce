@@ -14,7 +14,7 @@ const CartWidget = () => {
 
     return (
         <>
-            {cartItems.length == 0
+            {cartItems.length === 0
                 ? null
                 : <div className="d-flex justify-content-center">
                     <div style={{ color: 'white' }} className="m-2">{totalItems}</div>

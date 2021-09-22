@@ -30,32 +30,16 @@ const Checkout = () => {
         )
     }
 
-
     const sendData = async (e) => {
         e.preventDefault()
-        const data = []
-        let obj = []
         await db.collection('compras').doc().set(buyer)
-        db.collection("compras").get().then(("value", function (snapshot) {
+        db.collection("compras").orderBy("date", "desc").limit(1).get().then(('child_added', function (snapshot) {
             snapshot.docs.forEach(doc => {
-                data.push({ date: doc.data().date, id: doc.id })
+                setLastItem(doc.id)
             })
-            obj = (data[data.sort((a, b) => {
-                if (a.date > b.date) {
-                    return 1;
-                }
-                if (a.date < b.date) {
-                    return -1;
-                }
-                return 0;
-            }).length - 1]);
-            setLastItem(obj.id)
         }))
         Clear()
     }
-
-
-
 
     return (
         <div>

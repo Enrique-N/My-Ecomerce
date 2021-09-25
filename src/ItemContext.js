@@ -33,8 +33,6 @@ export const ItemsProvider = ({ children }) => {
         getProducts()
     }, [])
 
-
-
     return (
         <ItemsContext.Provider value={{ items, getCategory, getProducts }}>
             {children}

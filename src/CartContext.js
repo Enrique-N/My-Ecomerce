@@ -40,9 +40,17 @@ export const CartProvider = ({ children }) => {
     }, 0)
 
     const [lastItem, setLastItem] = useState([])
+    const [value, setValue] = useState(false)
+
+    const itemState = (valor) => {
+        setValue(valor)
+        setTimeout(() => {
+            setValue(false)
+        }, 2000)
+    }
 
     return (
-        <CartContext.Provider value={{ cartItems, setCartItems, addCart, DeleteItem, Clear, totalPrice, setLastItem, lastItem }}>
+        <CartContext.Provider value={{ cartItems, setCartItems, addCart, DeleteItem, Clear, totalPrice, setLastItem, lastItem, itemState, value }}>
             {children}
         </CartContext.Provider>
     )

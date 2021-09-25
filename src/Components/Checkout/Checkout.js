@@ -1,21 +1,25 @@
 import React, { useContext, useState } from 'react'
 import { db } from '../../firebase'
 import { CartContext } from '../../CartContext'
+import { ItemsContext } from '../../ItemContext'
 
 
 
 const Checkout = () => {
 
     const { totalPrice, cartItems, Clear, setLastItem } = useContext(CartContext)
+    const { getProducts } = useContext(ItemsContext)
+
     const [buyer, setBuyer] = useState({
         nombre: "",
         apellido: "",
         email: "",
         numero: "",
-        items: cartItems.map(({ id, nombre, precio }) => ({
+        items: cartItems.map(({ id, nombre, precio, cantidad }) => ({
             id,
             nombre,
-            precio
+            precio,
+            cantidad
         })),
         date: new Date().toLocaleString(),
         total: totalPrice
@@ -30,14 +34,24 @@ const Checkout = () => {
         )
     }
 
+    const stockFunction = (items) => {
+        db.collection('Products').where("nombre", "==", `${items.nombre}`).get().then(query => {
+            query.forEach(doc => {
+                db.collection('Products').doc(`${items.id}`).update({
+                    "stock": doc.data().stock - items.cantidad
+                }).then(() => {
+                    console.log("Document update Successfully")
+                })
+            })
+            getProducts();
+        })
+    }
+
     const sendData = async (e) => {
         e.preventDefault()
-        await db.collection('compras').doc().set(buyer)
-        db.collection("compras").orderBy("date", "desc").limit(1).get().then(('child_added', function (snapshot) {
-            snapshot.docs.forEach(doc => {
-                setLastItem(doc.id)
-            })
-        }))
+        const newAdd = await db.collection('compras').add(buyer)
+        setLastItem(newAdd.id)
+        buyer.items.map(items => stockFunction(items))
         Clear()
     }
 

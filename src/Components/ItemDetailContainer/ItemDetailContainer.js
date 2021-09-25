@@ -13,11 +13,11 @@ const ItemDetailContainer = ({ match }) => {
     return (
         <div className="row" style={{ marginTop: "5%" }}>
             <div className="col-12 d-flex justify-content-evenly">
-                {items.length > 0
+                {currentProduct
                     ? <ItemDetail producto={currentProduct} />
                     : <div className="d-flex justify-content-center my-5">
-                        <div className="spinner-border" role="status">
-                            <span className="visually-hidden">Loading...</span>
+                        <div>
+                            <h1 >Product Doesn't Exist. Come back to home, please.</h1>
                         </div>
                     </div>}
             </div>

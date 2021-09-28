@@ -6,7 +6,7 @@ import { CartContext } from '../../CartContext';
 
 const ItemDetail = ({ producto }) => {
 
-    const [value, setValue] = useState(0)
+    const [value, setValue] = useState(1)
     const [render, setRender] = useState(false)
     const { addCart } = useContext(CartContext)
 
@@ -16,8 +16,6 @@ const ItemDetail = ({ producto }) => {
         setRender(true)
     }
 
-    console.log(value)
-
     return (
         <div className="text-center" key={producto.char_id}>
             <div>{producto.nombre}</div>
@@ -26,7 +24,7 @@ const ItemDetail = ({ producto }) => {
             <div>${producto.precio}</div>
             {render
                 ? <Link to="/cart" type="button" className="btn btn-primary">Terminar Compra</Link>
-                : <ItemCount stock={producto.stock} initial={1} onAdd={onAdd} />}
+                : <ItemCount stock={producto.stock} initial={value} onAdd={onAdd} />}
         </div>
     )
 }

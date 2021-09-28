@@ -7,7 +7,7 @@ import { ItemsContext } from '../../ItemContext'
 
 const Checkout = () => {
 
-    const { totalPrice, cartItems, Clear, setLastItem } = useContext(CartContext)
+    const { totalPrice, cartItems, Clear, setLastItem, itemState } = useContext(CartContext)
     const { getProducts } = useContext(ItemsContext)
 
     const [buyer, setBuyer] = useState({
@@ -53,6 +53,7 @@ const Checkout = () => {
         setLastItem(newAdd.id)
         buyer.items.map(items => stockFunction(items))
         Clear()
+        itemState(true)
     }
 
     return (

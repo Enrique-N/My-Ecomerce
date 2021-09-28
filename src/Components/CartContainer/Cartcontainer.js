@@ -6,7 +6,7 @@ import Checkout from '../Checkout/Checkout';
 
 const Cartcontainer = () => {
 
-    const { cartItems, Clear, totalPrice, lastItem } = useContext(CartContext)
+    const { cartItems, Clear, totalPrice, lastItem, value } = useContext(CartContext)
 
     return (
         <div>
@@ -17,10 +17,13 @@ const Cartcontainer = () => {
                     <Link to="/" className="d-flex justify-content-center">
                         <button type="button" className="btn btn-dark " style={{ height: "50px" }}>Volver</button>
                     </Link>
-                    <div className="alert alert-success alert-dismissible fade show text-center my-2 w-50" role="alert" id="liveAlertPlaceholder">
-                        <strong>Congratulations, Buy Order: {lastItem}</strong>
-                        <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
+                    {value
+                        ? <div className="alert alert-success alert-dismissible fade show text-center my-2 w-50" role="alert" id="liveAlertPlaceholder">
+                            <strong>Congratulations, Buy Order: {lastItem}. The purchase order number will be sent to your email
+                            </strong>
+                        </div>
+                        : null
+                    }
                 </div>
                 : <div className="d-flex justify-content-center" style={{ margin: "70px 0" }}>
                     <button type="button" className="btn btn-danger mx-3" style={{ height: "50px" }} onClick={Clear}>Clear</button>
@@ -31,7 +34,6 @@ const Cartcontainer = () => {
                 </div>
             }
         </div >
-
     )
 }
 

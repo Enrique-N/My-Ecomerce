@@ -16,7 +16,6 @@ const ItemList = ({ productos }) => {
             {value
                 ? <div className="alert alert-danger alert-dismissible fade show text-center my-2 w-50 fixed-bottom">
                     <strong>Producto Agotado</strong>
-                    <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 : null
             }

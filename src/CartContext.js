@@ -46,7 +46,7 @@ export const CartProvider = ({ children }) => {
         setValue(valor)
         setTimeout(() => {
             setValue(false)
-        }, 2000)
+        }, 5000);
     }
 
     return (

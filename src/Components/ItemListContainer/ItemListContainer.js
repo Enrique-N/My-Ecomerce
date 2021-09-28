@@ -12,7 +12,7 @@ const ItemListContainer = () => {
             {items.length > 0
                 ? <ItemList productos={items} />
                 : <div className="d-flex justify-content-center my-5">
-                    <div className="spinner-border" role="status">
+                    <div className="spinner-border my-3" role="status">
                         <span className="visually-hidden">Loading...</span>
                     </div>
                 </div>}

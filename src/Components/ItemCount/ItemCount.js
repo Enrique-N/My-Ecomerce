@@ -18,7 +18,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     }
 
     return (
-        <div>
+        <div class="mt-2">
             <div>{state}</div>
             <div className="btn-group" role="group" aria-label="Basic example">
                 <button type="button" className="btn btn-primary" onClick={onDecrease}>-</button>

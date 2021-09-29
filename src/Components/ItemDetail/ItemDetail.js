@@ -17,14 +17,19 @@ const ItemDetail = ({ producto }) => {
     }
 
     return (
-        <div className="text-center" key={producto.char_id}>
-            <div>{producto.nombre}</div>
-            <div>Stock: {producto.stock}</div>
-            <img src={producto.img} alt="imagen del producto" width="250" height="250" />
-            <div>${producto.precio}</div>
-            {render
-                ? <Link to="/cart" type="button" className="btn btn-primary">Terminar Compra</Link>
-                : <ItemCount stock={producto.stock} initial={value} onAdd={onAdd} />}
+        <div className="row text-center mt-5 p-2 border-box" style={{ border: "solid black" }} key={producto.char_id}>
+            <div class="col-5">
+                <img src={producto.img} alt="imagen del producto" width="250" height="250" />
+            </div>
+            <div class="col-5">
+                <div><strong>{producto.nombre}</strong></div>
+                <div><strong>Stock: {producto.stock}</strong></div>
+                <div><strong>${producto.precio}</strong></div>
+                <div>{producto.descripcion}</div>
+                {render
+                    ? <Link to="/cart" type="button" className="btn mt-2 btn-primary">Terminar Compra</Link>
+                    : <ItemCount stock={producto.stock} initial={value} onAdd={onAdd} />}
+            </div>
         </div>
     )
 }

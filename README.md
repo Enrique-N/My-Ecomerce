@@ -4,6 +4,8 @@
 
 Ecomerce de productos informaticos realizado mediante los desafios asignados a lo largo del curso.
 
+![alt-text](https://giphy.com/embed/Qjv7qNLjBUXwmRCiBj)
+
 ### Herramientas Utilizadas:
 
 - React JS.

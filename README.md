@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# React JS - CoderHouse
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Acetar del Proyecto:
 
-## Available Scripts
+Ecomerce de productos informaticos realizado mediante los desafios asignados a lo largo del curso.
 
-In the project directory, you can run:
+### Herramientas Utilizadas:
 
-### `npm start`
+- React JS.
+- JavaScript.
+- BootsTrap.
+- HTML5/CSS.
+- FireBase.
+- AppNetlify
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Instalación del Proyecto:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Debe clonar el repositorio utlizando git clone https://github.com/Enrique-N/My-Ecomerce.git
+2. Luego deberá instalar todas las dependencias del proyecto, para eso deberá ejecutar npm install (también puede utilizar npm i)
+3. Por último, puede ejecutar el proyecto y realizar las pruebas utilizando npm start. Si no desea instalar el proyecto, puede utilizarlo ingresando al siguiente enlace: https://enrique-ninapaytan-ecomerce.netlify.app/
 
-### `npm test`
+## Funcionalidad del Proyecto: 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### NavBar:
 
-### `npm run build`
+- Puedes navegar a las distintas secciones en forma SPA.
+- Secciones a mostrar: Home / Categoria / CartShop
+- Muestra el carrito de compras con la cantidad de productos cuando este tenga algun producto dentro.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Sección Home:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Muestra todos los productos a vender del emprendedor.
+- Muestra el filtrado de productos Ryzen y Intel por separado.
+- Si los productos mostrados estan agotados aparecerá la imagen del producto griss con la palabra "unavailable".
+- Si se intenta agregar un producto agotado aparecera un PopUp donde indica que el producto esta agotado.
+- Al agotarse el stock de los productos, estos cambian a agotado automaticamente.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Detalle del Producto:
 
-### `npm run eject`
+- Al ingresar al detalle del producto se muestra:
+  - Nombre
+  - Precio
+  - Stock
+  - Caracteristica.
+- Puede volver al Home a seguir comprando.
+  
+### CartShop:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- En el CartSop se muestra los productos agregados al carrito para visualizar la cantidad y el precio total de lo que se va comprar.
+- Se puede eliminar los productos.
+- Se puede volver a la pantalla de Home sin perder los objetos en el CartShop.
+- Se puede limpiar el CartShop por completo.
+- Finalizar la compra de productos.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### CheckOut:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Pide llenar un formulario con los datos para el envio de la compra.
+- El formulario no se puede enviar si no estan todos los campos llenos.
+- Si la operación fue exitosa se le otorgara una orden de compra en codigo.
+- Al finalizar la compra el CartShop queda vacio y puedes volver al Home a seguir comprando.

@@ -4,7 +4,7 @@
 
 Ecomerce de productos informaticos realizado mediante los desafios asignados a lo largo del curso.
 
-![alt-text](\src\img\gif.gif)
+![alt-text](src/img/gif.gif)
 
 ### Herramientas Utilizadas:
 

@@ -1,6 +1,6 @@
 # React JS - CoderHouse
 
-## Acetar del Proyecto:
+## Acerca del Proyecto:
 
 Ecomerce de productos informaticos realizado mediante los desafios asignados a lo largo del curso.
 
